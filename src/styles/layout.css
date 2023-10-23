@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.layout {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.backgroundPage {
+    left: 1px;
+    object-fit: cover;
+    position: absolute;
+    /* top: 64px; */
+    opacity: 0.35;
+    width: 100%;
+}
+
+.content {
+    border-radius: 16px;
+    height: 982px;
+    position: relative;
+    display: grid;
+    place-content: center;
+}

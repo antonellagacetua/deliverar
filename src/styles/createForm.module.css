@@ -1,0 +1,123 @@
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 0 40px;
+}
+
+.userInfo p {
+    color: #30DE96;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 110% */
+    letter-spacing: -0.4px;
+    border-radius: 4px;
+    border: 1px solid #30DE96;
+    background: #D6FAEB;
+    padding: 10px 30px;
+    margin: 0;
+    align-self: flex-end;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 40px;
+}
+
+
+input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #000;
+    background: #FFFDFD;
+}
+
+label {
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 122.222% */
+    letter-spacing: -0.36px;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 4px;
+    background: #007BFF;
+    color: #FFF;
+    text-align: center;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 88% */
+    letter-spacing: -0.5px;
+    border: none;
+}
+
+.formContainer > div {
+    margin-top: 20px;
+}
+
+.flexContainer {
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    align-items: center;
+}
+
+.firstChild {
+    flex: 1;
+    width: 100%;
+}
+
+.submitBtn {
+    min-width: 100%;
+    margin: 40px 0;
+}
+
+.btnsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+}
+
+button {
+    margin: 0;
+}
+
+.cancelBtn {
+    color: #00A3FF;
+    text-align: center;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 88% */
+    letter-spacing: -0.5px;
+    border-radius: 4px;
+    border: 1px solid #00A3FF;
+    background: #F0F8FF;
+}
+
+p {
+    text-align: center;
+}
+
+.deleteAcc {
+    margin-top: 10px;
+}
+
+.linkToDelete {
+    color: #000;
+    font-weight: 700;
+}

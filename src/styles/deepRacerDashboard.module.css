@@ -1,0 +1,69 @@
+.background {
+    background-color: #F0F8FF;
+    width: 1920px;
+    height: 1080px;
+    border-radius: 8px;
+    border: 1px solid #0F87DA;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-top: 200px;
+    align-items: center;
+    gap: 100px;
+    flex-direction: column;
+}
+.deepSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.deepSection div {
+    background-color: white;
+    width: 100%;
+    min-width: 400px;
+    color: black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.deepSection img {
+    width: 200px;
+    height: 200px;
+}
+
+.globalData {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilo para centrar la tabla */
+.table {
+    margin: 0 auto;
+    width: 80%; /* Ajusta el ancho de la tabla según tus necesidades */
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  /* Estilo para centrar el contenido de las celdas del cuerpo de la tabla */
+  .table tbody td {
+    vertical-align: middle;
+  }
+  
+  /* Estilo para centrar el encabezado de la tabla */
+  .table thead th {
+    text-align: center;
+    padding: 0 0 4px 0;
+    border-bottom: 1px solid gray;
+  }
+  
