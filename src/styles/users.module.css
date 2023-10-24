@@ -51,7 +51,7 @@ li div {
     gap: 20px;
     max-width: 300px;
 }
-    
+
 li div button {
     margin-left: 10px;
     font-size: 20px;
@@ -71,7 +71,8 @@ li div button {
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 22px; /* 122.222% */
+    line-height: 22px;
+    /* 122.222% */
     letter-spacing: 1.44px;
     border-radius: 3px;
     background: #EAEAEA;
@@ -80,3 +81,31 @@ li div button {
 li p {
     font-weight: bold;
 }
+
+/* Estilo para el select */
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-position: 95% 50%;
+}
+
+/* Estilo para las opciones (option) dentro del select */
+option {
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+}
+
+select option:checked {
+    background-color: #007bff;
+    color: #fff;
+  }
+

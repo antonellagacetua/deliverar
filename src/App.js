@@ -21,7 +21,8 @@ function App() {
         <Layout>
           <Routes>
             <Route element={<ProtectedRouter />}>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<LoginPage />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/createuser" element={<CreateUserPage />} />
               <Route path="/deleteuser/:id" element={<DeleteUserPage />} />
               <Route path="/edituser/:id" element={<EditUserPage />} />
@@ -33,7 +34,7 @@ function App() {
                 element={<DeepRacerDashboard />}
               />
             </Route>
-            <Route path="/login" element={<LoginPage />} />
+            
           </Routes>
         </Layout>
       </UserProvider>

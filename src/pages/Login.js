@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styles from "../styles/login.module.css"
 
+
 function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -52,7 +53,7 @@ function LoginPage() {
             </div>
             <a href="google.com">Olvide mi contraseña</a>
           </div>
-          <button>Ingresar</button>
+          <button onClick={handleLogin}>Ingresar</button>
         </div>
       </form>
       <div className={styles.imgForm}>
