@@ -32,7 +32,8 @@ function App() {
               <Route path="/users" element={<Users />} />
               <Route path="/groups" element={<Groups />} />
               <Route path="/allgroups" element={<AllGroupsPage />} />
-              <Route path="/group1" element={<GroupPage />} />
+              {/* <Route path="/group1" element={<GroupPage />} /> */}
+              <Route path="/group/:groupName" element={<GroupPage />} />
               <Route
                 path="/deepracerdashboard"
                 element={<DeepRacerDashboard />}

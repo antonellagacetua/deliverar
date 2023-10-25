@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import BackgroundLayout from "../layouts/BackgroundLayout";
 import styles from "../styles/allGroups.module.css";
+import { useNavigate } from "react-router-dom";
+
 
 function AllGroupsPage() {
   const [groups, setGroups] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleGroupClick = (groupName) => {
+    navigate(`/group/${groupName}`); // Redirige a la página de detalles del grupo
+  };
 
   useEffect(() => {
     // Realiza una solicitud GET al endpoint /api/grupos-ldap
@@ -34,7 +42,7 @@ function AllGroupsPage() {
             />
             {groups.map((groupName, index) => (
               <li key={index}>
-                <p>{groupName}</p>
+                <p onClick={() => handleGroupClick(groupName)}>{groupName}</p>
               </li>
             ))}
           </ul>
