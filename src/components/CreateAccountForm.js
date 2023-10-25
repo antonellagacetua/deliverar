@@ -108,6 +108,7 @@ function CreateAccountForm({ isEdit = false }) {
               name="birthDate"
               {...register("birthDate", { required: true })}
               type="date"
+              defaultValue="YYYY-MM-DD"
             />
           </div>
           <div>
