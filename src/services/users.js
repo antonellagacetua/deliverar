@@ -151,3 +151,19 @@ export const addUserToGroupAPI = (grupo, usuario) => {
       console.error("Error inesperado:", error)
     })
 }
+
+export const login = async (email, password) => {
+  try {
+    const response = await fetch(`http://localhost/api/LoginUid?uid=${email}&pass=${password}`);
+
+    if (response.status === 200) {
+      return await response.json();
+    } else {
+      // Manejar otros casos si es necesario
+      return "Credenciales incorrectas";
+    }
+  } catch (error) {
+    console.error("Error de inicio de sesión:", error);
+    return "Error de inicio de sesión";
+  }
+};

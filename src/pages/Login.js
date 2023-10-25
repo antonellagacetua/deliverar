@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styles from "../styles/login.module.css"
+import { login } from "../services/users"; 
 
 
 function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [message, setMessage] = useState("");
   const navigate = useNavigate()
 
   const handleEmailChange = (e) => {
@@ -16,12 +18,22 @@ function LoginPage() {
     setPassword(e.target.value)
   }
 
-  const handleLogin = () => {
-    // Realizar la lógica de inicio de sesión aquí
-    // ...
-    // Después de que el usuario haya iniciado sesión exitosamente, redirige a la página de inicio
-    navigate("/home")
-  }
+  const handleLogin = async () => {
+    try {
+      const result = await login(email, password);
+  
+      if (result.status === 200) {
+        // Redirige al usuario después de una autenticación exitosa
+        navigate("/home");
+        console.log("logueo exitoso");
+      } else {
+        // Muestra mensajes de error
+        setMessage(result.message);
+      }
+    } catch (error) {
+      console.error("Error inesperado:", error);
+    }
+  };
 
   return (
     <div className={styles.formContainer}>
@@ -36,6 +48,7 @@ function LoginPage() {
             id="user"
             type="text"
             placeholder="Usuario"
+            value={email}
             onChange={handleEmailChange}
           />
 
@@ -43,6 +56,7 @@ function LoginPage() {
           <input
             type="password"
             placeholder="Contraseña"
+            value={password}
             onChange={handlePasswordChange}
           />
 
