@@ -12,6 +12,8 @@ import Groups from "./pages/Groups"
 import UserProvider from "./context/UserContext"
 import ProtectedRouter from "./pages/ProtectedRoute"
 import DeepRacerDashboard from "./pages/DeepRacerDashboard"
+import AllGroupsPage from "./pages/AllGroups"
+import GroupPage from "./pages/GroupPage"
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
               <Route path="/changepassword/:id" element={<ChangePassword />} />
               <Route path="/users" element={<Users />} />
               <Route path="/groups" element={<Groups />} />
+              <Route path="/allgroups" element={<AllGroupsPage />} />
+              <Route path="/group1" element={<GroupPage />} />
               <Route
                 path="/deepracerdashboard"
                 element={<DeepRacerDashboard />}

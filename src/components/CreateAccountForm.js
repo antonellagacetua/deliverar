@@ -45,7 +45,6 @@ function CreateAccountForm({ isEdit = false }) {
       getUserByCn(id).then((user) => {
         formRef.current.name.value = user.name
         formRef.current.lastname.value = user.lastName
-        formRef.current.status.value = user.state
         formRef.current.dni.value = user.dni
         formRef.current.birthDate.value = user.birthDate
         formRef.current.email.value = user.email
@@ -61,7 +60,6 @@ function CreateAccountForm({ isEdit = false }) {
             <label htmlFor="userId">USERID</label>
             <input id="userId" value={`/${id}`} disabled />
           </div>
-          <p>ACTIVO</p>
         </div>
       )}
       <form
@@ -88,14 +86,6 @@ function CreateAccountForm({ isEdit = false }) {
           </div>
         </div>
         <div className={styles.flexContainer}>
-          <div className={styles.firstChild}>
-            <label htmlFor="status">Estado</label>
-            <input
-              id="status"
-              name="status"
-              {...register("status", { required: true })}
-            />
-          </div>
           <div>
             <label htmlFor="dni">DNI</label>
             <input
@@ -104,6 +94,10 @@ function CreateAccountForm({ isEdit = false }) {
               type="number"
               {...register("dni", { required: true })}
             />
+          </div>
+          <div className={styles.flex1}>
+            <label htmlFor="avatar">AVATAR</label>
+            <input id="avatar" name="avatar" type="file" />
           </div>
         </div>
         <div className={styles.flexContainer}>
@@ -139,15 +133,17 @@ function CreateAccountForm({ isEdit = false }) {
             {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
           />
         </div>
-        <div>
-          <label htmlFor="password">CONTRASEÑA</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            {...register("password", { required: true })}
-          />
-        </div>
+        {!isEdit && (
+          <div>
+            <label htmlFor="password">CONTRASEÑA</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              {...register("password", { required: true })}
+            />
+          </div>
+        )}
 
         {isEdit ? (
           <>
@@ -158,8 +154,8 @@ function CreateAccountForm({ isEdit = false }) {
               </button>
             </div>
             <p className={styles.deleteAcc}>
-              Desea eliminar su cuenta?{" "}
-              <Link to={"/delete-user"} className={styles.linkToDelete}>
+              Desea eliminar la cuenta?{" "}
+              <Link to={`/deleteuser/${id}`} className={styles.linkToDelete}>
                 Eliminar
               </Link>
             </p>

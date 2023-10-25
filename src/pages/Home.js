@@ -31,6 +31,12 @@ function Home() {
         to={"/deepracerdashboard"}
         image={"/images/aws.jpg"}
       />
+      <Redirect
+        title={"Todos los grupos"}
+        to={"/allgroups"}
+        image={"/images/aws.jpg"}
+      />
+      <Redirect title={"Grupo 1"} to={"/group1"} image={"/images/aws.jpg"} />
     </div>
   )
 }

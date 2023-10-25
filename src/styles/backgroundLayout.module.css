@@ -4,4 +4,23 @@
     height: 730px;
     border-radius: 8px;
     border: 1px solid #0F87DA;
+    position: relative;
+}
+
+.backBtn {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    border: 1px solid #0F87DA;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.backBtn svg {
+    height: 20px;
+    width: 20px;
 }
