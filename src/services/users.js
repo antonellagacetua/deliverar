@@ -145,10 +145,12 @@ export const addUserToGroupAPI = (grupo, usuario) => {
     })
     .then((data) => {
       console.log("Respuesta del servidor:", data)
-      // Puedes realizar alguna acción adicional aquí
+      return data;
+      
     })
     .catch((error) => {
       console.error("Error inesperado:", error)
+      throw error;
     })
 }
 

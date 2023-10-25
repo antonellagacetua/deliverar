@@ -2,10 +2,49 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"; // Importa useParams
 import BackgroundLayout from "../layouts/BackgroundLayout";
 import styles from "../styles/allGroups.module.css";
+import { getAllGroups, getAllUsers, addUserToGroupAPI } from "../services/users"
+import UserSelector from "../components/UserSelector";
 
 function GroupPage() {
   const [miembros, setMiembros] = useState([]);
+  const [selectedUser, setSelectedUser] = useState("");
+  const [usuarios, setUsuarios] = useState([]);
   const { groupName } = useParams(); // Utiliza useParams para obtener groupName
+
+  const handleUserSelect = (user) => {
+    setSelectedUser(user);
+  };
+
+  useEffect(() => {
+
+    // Obtén la lista de usuarios utilizando la función getAllUsers
+    getAllUsers()
+      .then((data) => {
+        const userNames = data.map((user) => user.cn);
+        setUsuarios(userNames);
+      })
+      .catch((error) => {
+        console.error("Error al obtener la lista de usuarios:", error)
+      })
+  }, [])
+
+  const addUserToGroup = () => {
+    if (groupName && selectedUser) {
+      addUserToGroupAPI(groupName, selectedUser)
+        .then((response) => {
+          if (response.ok) {
+            const nuevosMiembros = [...miembros, selectedUser];
+            setMiembros(nuevosMiembros);
+            window.location.reload(true);
+          } else {
+            console.error("Error al agregar el usuario al grupo:", response.status);
+          }
+        })
+        .catch((error) => {
+          console.error("Error inesperado:", error);
+        });
+    }
+  };
 
   useEffect(() => {
     fetch(`http://localhost/api/miembrosGrupo?cn=${groupName}`)
@@ -41,6 +80,8 @@ function GroupPage() {
     }
   };
 
+
+
   return (
     <BackgroundLayout>
       <div className={styles.container}>
@@ -57,7 +98,7 @@ function GroupPage() {
                 <p>{miembro}</p>
                 <div>
                   <button
-                     onClick={() => eliminarUsuarioDelGrupo(miembro)}
+                    onClick={() => eliminarUsuarioDelGrupo(miembro)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -78,6 +119,14 @@ function GroupPage() {
               </li>
             ))}
           </ul>
+
+          <UserSelector
+            usuarios={usuarios} // Pasar la lista de todos los usuarios
+            selectedUser={selectedUser}
+            handleUserSelect={handleUserSelect}
+          />
+          <button onClick={addUserToGroup}>Agregar Usuario al Grupo</button>
+
         </div>
       </div>
     </BackgroundLayout>

@@ -36,7 +36,7 @@ function Home() {
         to={"/allgroups"}
         image={"/images/aws.jpg"}
       />
-      <Redirect title={"Grupo 1"} to={"/group1"} image={"/images/aws.jpg"} />
+     
     </div>
   )
 }
