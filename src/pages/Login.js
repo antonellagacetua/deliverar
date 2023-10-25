@@ -45,15 +45,12 @@ function LoginPage() {
             placeholder="Contraseña"
             onChange={handlePasswordChange}
           />
-
-          <div className={styles.forgotRemember}>
-            <div className="remember">
-              <input type="checkbox" name="remember" id="remember" />
-              <label htmlFor="remember">Mantenerse conectado</label>
-            </div>
-            <a href="google.com">Olvide mi contraseña</a>
+          
+          <div className={styles.rememberContainer}>
+            <input type="checkbox" id="remember" />
+            <label htmlFor="remember">Recordar usuario</label>
           </div>
-          <button onClick={handleLogin}>Ingresar</button>
+          <button onClick={() => navigate("/home")}>Ingresar</button>
         </div>
       </form>
       <div className={styles.imgForm}>

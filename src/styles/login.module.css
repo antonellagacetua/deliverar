@@ -59,24 +59,24 @@
     margin: 12px 0;
 }
 
-.forgotRemember {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-}
 
 button {
+    margin-top: 20px;
     padding: 4px 0;
 }
 
-.remember {
+.rememberContainer {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
 }
 
-.remember label {
+.rememberContainer input {
+    height: auto;
+    width: auto;
+}
+
+.rememberContainer label {
     margin: 0;
-    width: 100%;
+    font-size: 20px;
 }

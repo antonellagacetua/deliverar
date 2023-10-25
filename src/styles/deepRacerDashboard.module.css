@@ -66,4 +66,20 @@
     padding: 0 0 4px 0;
     border-bottom: 1px solid gray;
   }
-  
+  .backBtn {
+    position: absolute;
+    left: 30px;
+    top: 80px;
+    border: 1px solid #0F87DA;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.backBtn svg {
+    height: 20px;
+    width: 20px;
+}

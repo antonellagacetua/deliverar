@@ -1,9 +1,31 @@
 import styles from "../styles/deepRacerDashboard.module.css"
-import BackgroundLayout from "../layouts/BackgroundLayout"
+import { useNavigate } from "react-router-dom"
 
 function DeepRacerDashboard() {
+  const navigate = useNavigate()
+  const handleBack = () => {
+    navigate(-1)
+  }
   return (
     <div className={styles.background}>
+       <div className={styles.backBtn} onClick={handleBack}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+          />
+        </svg>
+
+        <span>Volver</span>
+      </div>
       <div className={styles.content}>
         <section className={styles.deepSection}>
           <div>
