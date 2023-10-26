@@ -45,7 +45,7 @@ export const getUserByCn = async (cn) => {
 
     const data = await res.json()
 
-    const name = data[0].attributes.find((att) => att.type == "givenName")
+    const name = data[0].attributes.find((att) => att.type == "cn")
       .values[0]
 
     const lastName = data[0].attributes.find((att) => att.type == "sn")
@@ -61,6 +61,8 @@ export const getUserByCn = async (cn) => {
 
     const email = data[0].attributes.find((att) => att.type == "uid").values[0]
 
+    const avatarURL = data[0].attributes.find((att) => att.type === "givenName").values[0];
+
     const user = {
       name,
       lastName,
@@ -68,6 +70,7 @@ export const getUserByCn = async (cn) => {
       dni,
       birthDate,
       email,
+      avatarURL,
     }
 
     return user
@@ -75,22 +78,25 @@ export const getUserByCn = async (cn) => {
     console.error(error)
   }
 }
-
-export const createUser = async (user) => {
+export const createUser = async (user, selectedAvatar) => {
   try {
+    // Agregar la imagen en base64 al objeto de usuario
+    user.avatar = selectedAvatar;
+
     const res = await fetch("http://localhost/api/usuarios", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(user),
-    })
+      body: JSON.stringify(user), // Enviar el objeto de usuario como JSON
+    });
 
-    return res
+    return res;
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 }
+
 
 export const editUser = async (id, newUser) => {
   const res = await fetch(`http://localhost/api/usuarios/${id}`, {
@@ -103,6 +109,7 @@ export const editUser = async (id, newUser) => {
 
   return res
 }
+
 
 export const getAllGroups = async () => {
   try {
