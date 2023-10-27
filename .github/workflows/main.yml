@@ -2,7 +2,7 @@ name: Test Cypress
 on: [push]
 jobs:
   cypress-run:
-    runs-on: ubuntu-lastest
+    runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
